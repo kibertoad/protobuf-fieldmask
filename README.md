@@ -4,7 +4,7 @@ Library for generating and applying FieldMask
   [![NPM Version][npm-image]][npm-url]
   [![Linux Build][travis-image]][travis-url]
 
-See https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask for explanation of what FieldMask is
+See https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask for explanation of what FieldMask is.
 
 ## Usage
 
