@@ -22,7 +22,7 @@ function generateFieldMask(object)
  * Creates a new object that copies fields present in field mask from specified source object
  * @param {*} sourceObject - object to apply field mask to
  * @param {string[]} fieldMask
- * @returns {*} - generated field mask or original entity if it is not object
+ * @returns {*} - new object created by applying field mask on source object or original entity if source is not an object
  */
 function applyFieldMask(sourceObject, fieldMask)
 ```
