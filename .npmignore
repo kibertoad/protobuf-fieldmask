@@ -5,3 +5,4 @@ README.md
 build/
 test/
 .nyc_output/
+coverage/
