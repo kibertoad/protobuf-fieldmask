@@ -14,7 +14,7 @@
     "test": "mocha ./test",
     "test:coverage": "nyc npm test",
     "lint": "eslint .",
-    "prettier": "prettier --write \"{lib,test}/**/*.{js,ts}\"",
+    "prettier": "prettier --write \"{lib,test}/**/*.{js,ts}\""
   },
   "repository": {
     "type": "git",
