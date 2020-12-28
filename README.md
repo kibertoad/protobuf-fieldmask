@@ -1,10 +1,11 @@
 # protobuf-fieldmask
-Library for generating and applying FieldMask
 
-  [![NPM Version][npm-image]][npm-url]
-  [![Linux Build][travis-image]][travis-url]
+[![npm version](http://img.shields.io/npm/v/protobuf-fieldmask.svg)](https://npmjs.org/package/protobuf-fieldmask)
+[![npm downloads](https://img.shields.io/npm/dm/protobuf-fieldmask.svg)](https://npmjs.org/package/protobuf-fieldmask)
+![](https://github.com/kibertoad/protobuf-fieldmask/workflows/unit-tests/badge.svg)
+[![Coverage Status](https://coveralls.io/repos/kibertoad/protobuf-fieldmask/badge.svg?branch=master)](https://coveralls.io/r/kibertoad/protobuf-fieldmask?branch=master)
 
-See https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask for explanation of what FieldMask is.
+Library for generating and applying protobuf [FieldMask](https://developers.google.com/protocol-buffers/docs/reference/csharp/class/google/protobuf/well-known-types/field-mask)
 
 ## Usage
 
@@ -73,8 +74,3 @@ generates this output:
   }
 }
 ```
-
-[npm-image]: https://img.shields.io/npm/v/protobuf-fieldmask.svg
-[npm-url]: https://npmjs.org/package/protobuf-fieldmask
-[travis-image]: https://img.shields.io/travis/kibertoad/protobuf-fieldmask/master.svg?label=linux
-[travis-url]: https://travis-ci.org/kibertoad/protobuf-fieldmask
