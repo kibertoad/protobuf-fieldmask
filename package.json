@@ -10,11 +10,11 @@
     }
   ],
   "scripts": {
+    "coveralls": "nyc report --reporter=lcov",
     "test": "mocha ./test",
-    "test-coverage": "nyc npm test",
+    "test:coverage": "nyc npm test",
     "lint": "eslint .",
     "prettier": "prettier --write \"{lib,test}/**/*.{js,ts}\"",
-    "test-travis": "npm run lint && nyc mocha --opts \"./mocha.opts\" test"
   },
   "repository": {
     "type": "git",
