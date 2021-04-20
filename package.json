@@ -1,6 +1,6 @@
 {
   "name": "protobuf-fieldmask",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Library for generating and applying FieldMask",
   "license": "MIT",
   "maintainers": [
@@ -36,13 +36,13 @@
     "lodash.set": "^4.3.2"
   },
   "devDependencies": {
-    "chai": "^4.1.2",
-    "eslint": "^5.1.0",
-    "eslint-config-prettier": "^2.9.0",
-    "eslint-plugin-prettier": "^2.6.2",
+    "chai": "^4.3.4",
+    "eslint": "^7.24.0",
+    "eslint-config-prettier": "^8.2.0",
+    "eslint-plugin-prettier": "^3.4.0",
     "mocha": "^5.2.0",
     "nyc": "^12.0.2",
-    "prettier": "^1.13.7"
+    "prettier": "^2.2.1"
   },
   "nyc": {
     "description": "test coverage",

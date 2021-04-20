@@ -10,11 +10,11 @@ describe('fieldmask', () => {
             a: 22,
             b: {
               d: 1,
-              x: 2
+              x: 2,
             },
-            y: 13
+            y: 13,
           },
-          z: 8
+          z: 8,
         },
         ['f.a', 'f.b.d']
       );
@@ -23,9 +23,9 @@ describe('fieldmask', () => {
         f: {
           a: 22,
           b: {
-            d: 1
-          }
-        }
+            d: 1,
+          },
+        },
       });
     });
   });
@@ -37,9 +37,9 @@ describe('fieldmask', () => {
           a: null,
           b: {
             d: 1,
-            x: 2
-          }
-        }
+            x: 2,
+          },
+        },
       },
       ['f.a', 'f.b.d']
     );
@@ -48,9 +48,9 @@ describe('fieldmask', () => {
       f: {
         a: null,
         b: {
-          d: 1
-        }
-      }
+          d: 1,
+        },
+      },
     });
   });
 
@@ -61,9 +61,9 @@ describe('fieldmask', () => {
           a: undefined,
           b: {
             d: 1,
-            x: 2
-          }
-        }
+            x: 2,
+          },
+        },
       },
       ['f.a', 'f.b.d']
     );
@@ -72,9 +72,9 @@ describe('fieldmask', () => {
       f: {
         a: undefined,
         b: {
-          d: 1
-        }
-      }
+          d: 1,
+        },
+      },
     });
   });
 
@@ -85,9 +85,9 @@ describe('fieldmask', () => {
           a: ['a', 'b'],
           b: {
             d: 1,
-            x: 2
-          }
-        }
+            x: 2,
+          },
+        },
       },
       ['f.a', 'f.b.d']
     );
@@ -96,9 +96,9 @@ describe('fieldmask', () => {
       f: {
         a: ['a', 'b'],
         b: {
-          d: 1
-        }
-      }
+          d: 1,
+        },
+      },
     });
   });
 
@@ -109,9 +109,9 @@ describe('fieldmask', () => {
       f: {
         a: undefined,
         b: {
-          d: undefined
-        }
-      }
+          d: undefined,
+        },
+      },
     });
   });
   it('null', () => {
@@ -139,23 +139,23 @@ describe('fieldmask', () => {
           a: 22,
           'b.z': {
             d: 1,
-            x: 2
+            x: 2,
           },
           'b.': {
             d: 1,
-            x: 2
+            x: 2,
           },
           'b\\b1': {
             d: 1,
-            x: 2
+            x: 2,
           },
           b: {
             z: {
               d: 1,
-              x: 2
-            }
-          }
-        }
+              x: 2,
+            },
+          },
+        },
       },
       ['f.b\\.z.d', 'f.b.z.x', 'f.b\\..x', 'f.b\\\\b1.d']
     );
@@ -163,20 +163,20 @@ describe('fieldmask', () => {
     assert.deepEqual(result, {
       f: {
         'b.z': {
-          d: 1
+          d: 1,
         },
         'b.': {
-          x: 2
+          x: 2,
         },
         'b\\b1': {
-          d: 1
+          d: 1,
         },
         b: {
           z: {
-            x: 2
-          }
-        }
-      }
+            x: 2,
+          },
+        },
+      },
     });
   });
 });
@@ -187,9 +187,9 @@ describe('generateFieldMask', () => {
       f: {
         a: 22,
         b: {
-          d: 1
-        }
-      }
+          d: 1,
+        },
+      },
     });
     assert.deepEqual(mask, ['f.a', 'f.b.d']);
   });
@@ -198,8 +198,8 @@ describe('generateFieldMask', () => {
     const mask = fieldmask.generateFieldMask({
       f: {
         a: 22,
-        b: function() {}
-      }
+        b: function () {},
+      },
     });
     assert.deepEqual(mask, ['f.a']);
   });
@@ -217,9 +217,9 @@ describe('generateFieldMask', () => {
       f: {
         a: 22,
         b: {
-          d: 1
-        }
-      }
+          d: 1,
+        },
+      },
     });
 
     const mask = fieldmask.generateFieldMask(instance);
@@ -231,9 +231,9 @@ describe('generateFieldMask', () => {
       f: {
         a: ['a', 'b'],
         b: {
-          d: 1
-        }
-      }
+          d: 1,
+        },
+      },
     });
     assert.deepEqual(mask, ['f.a', 'f.b.d']);
   });
@@ -243,9 +243,9 @@ describe('generateFieldMask', () => {
       f: {
         a: null,
         b: {
-          d: 1
-        }
-      }
+          d: 1,
+        },
+      },
     });
     assert.deepEqual(mask, ['f.a', 'f.b.d']);
   });
@@ -269,17 +269,17 @@ describe('generateFieldMask', () => {
     const mask = fieldmask.generateFieldMask({
       f: {
         'b.z': {
-          d: 1
+          d: 1,
         },
         b: {
           z: {
-            d: 1
-          }
+            d: 1,
+          },
         },
         'b\\': {
-          x: 1
-        }
-      }
+          x: 1,
+        },
+      },
     });
     assert.deepEqual(mask, ['f.b\\.z.d', 'f.b.z.d', 'f.b\\\\.x']);
   });
