@@ -131,6 +131,54 @@ describe('fieldmask', () => {
 
     assert.deepEqual(result, 1);
   });
+
+  it('escaped property name', () => {
+    const result = fieldmask.applyFieldMask(
+      {
+        f: {
+          a: 22,
+          'b.z': {
+            d: 1,
+            x: 2
+          },
+          'b.': {
+            d: 1,
+            x: 2
+          },
+          'b\\b1': {
+            d: 1,
+            x: 2
+          },
+          b: {
+            z: {
+              d: 1,
+              x: 2
+            }
+          }
+        }
+      },
+      ['f.b\\.z.d', 'f.b.z.x', 'f.b\\..x', 'f.b\\\\b1.d']
+    );
+
+    assert.deepEqual(result, {
+      f: {
+        'b.z': {
+          d: 1
+        },
+        'b.': {
+          x: 2
+        },
+        'b\\b1': {
+          d: 1
+        },
+        b: {
+          z: {
+            x: 2
+          }
+        }
+      }
+    });
+  });
 });
 
 describe('generateFieldMask', () => {
@@ -215,5 +263,24 @@ describe('generateFieldMask', () => {
   it('undefined', () => {
     const mask = fieldmask.generateFieldMask();
     assert.deepEqual(mask, []);
+  });
+
+  it('escaping dots and escape chars in the property name', () => {
+    const mask = fieldmask.generateFieldMask({
+      f: {
+        'b.z': {
+          d: 1
+        },
+        b: {
+          z: {
+            d: 1
+          }
+        },
+        'b\\': {
+          x: 1
+        }
+      }
+    });
+    assert.deepEqual(mask, ['f.b\\.z.d', 'f.b.z.d', 'f.b\\\\.x']);
   });
 });
