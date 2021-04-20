@@ -19,6 +19,8 @@ Library for generating and applying protobuf [FieldMask](https://developers.goog
 function generateFieldMask(object)
 ```
 
+The name of the properties containing `.` or `\` characters are escaped. 
+
 For an example, running this function with this input:
 ```
 {
@@ -26,14 +28,16 @@ For an example, running this function with this input:
     a: 22,
     b: {
       d: 1
-    }
+    },
+    'b.d': 33,
+    'x\\y': 44
   }
 }
 ```
 
 generates this output:
 ```
-['f.a', 'f.b.d']
+['f.a', 'f.b.d', 'f.b\\.d', "f.x\\\\y"]
 ```
 
 ### applyFieldMask
@@ -47,6 +51,8 @@ generates this output:
 function applyFieldMask(sourceObject, fieldMask)
 ```
 
+Respects the escaping of the property names in the `fieldMask`.
+
 For an example, running this function with this input:
 ```
 {
@@ -56,11 +62,12 @@ For an example, running this function with this input:
       d: 1,
       x: 2
     },
+    'b.d': 33,
     y: 13
   },
   z: 8
 },
-['f.a', 'f.b.d']
+['f.a', 'f.b.d', 'f.b\\.d']
 ```
 
 generates this output:
@@ -70,7 +77,8 @@ generates this output:
     a: 22,
     b: {
       d: 1
-    }
+    },
+    'b.d': 33
   }
 }
 ```
