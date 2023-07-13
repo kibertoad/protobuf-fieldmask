@@ -1,3 +1,4 @@
-const fieldMask = require('./lib/fieldmask');
+const { generateFieldMask, applyFieldMask } = require('./lib/fieldmask');
 
-module.exports = fieldMask;
+module.exports.generateFieldMask = generateFieldMask;
+module.exports.applyFieldMask = applyFieldMask;
