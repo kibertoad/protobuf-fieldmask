@@ -100,6 +100,33 @@ describe('applyFieldMask', () => {
     });
   });
 
+  it('date property', () => {
+    const result = fieldmask.applyFieldMask(
+      {
+        a: new Date(1549312452000),
+        f: {
+          a: ['a', 'b'],
+          b: {
+            d: 1,
+            x: new Date(1549312452000),
+          },
+        },
+      },
+      ['a', 'f.a', 'f.b.d', 'f.b.x']
+    );
+
+    assert.deepEqual(result, {
+      a: new Date(1549312452000),
+      f: {
+        a: ['a', 'b'],
+        b: {
+          d: 1,
+          x: new Date(1549312452000),
+        },
+      },
+    });
+  });
+
   it('empty object', () => {
     const result = fieldmask.applyFieldMask({}, ['f.a', 'f.b.d']);
 
@@ -226,6 +253,19 @@ describe('generateFieldMask', () => {
     const mask = fieldmask.generateFieldMask(instance);
 
     assert.deepEqual(mask, ['fields.f.a', 'fields.f.b.d']);
+  });
+
+  it('date', () => {
+    const mask = fieldmask.generateFieldMask({
+      d: new Date(),
+      f: {
+        a: ['a', 'b'],
+        b: {
+          x: new Date(),
+        },
+      },
+    });
+    assert.deepEqual(mask, ['d', 'f.a', 'f.b.x']);
   });
 
   it('array', () => {
