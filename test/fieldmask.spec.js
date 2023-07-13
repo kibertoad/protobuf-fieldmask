@@ -1,32 +1,30 @@
 const { assert } = require('chai');
 const fieldmask = require('../lib/fieldmask');
 
-describe('fieldmask', () => {
-  describe('applyFieldMask', () => {
-    it('happy path', () => {
-      const result = fieldmask.applyFieldMask(
-        {
-          f: {
-            a: 22,
-            b: {
-              d: 1,
-              x: 2,
-            },
-            y: 13,
-          },
-          z: 8,
-        },
-        ['f.a', 'f.b.d']
-      );
-
-      assert.deepEqual(result, {
+describe('applyFieldMask', () => {
+  it('happy path', () => {
+    const result = fieldmask.applyFieldMask(
+      {
         f: {
           a: 22,
           b: {
             d: 1,
+            x: 2,
           },
+          y: 13,
         },
-      });
+        z: 8,
+      },
+      ['f.a', 'f.b.d']
+    );
+
+    assert.deepEqual(result, {
+      f: {
+        a: 22,
+        b: {
+          d: 1,
+        },
+      },
     });
   });
 
@@ -114,6 +112,7 @@ describe('fieldmask', () => {
       },
     });
   });
+
   it('null', () => {
     const result = fieldmask.applyFieldMask(null, ['f.a', 'f.b.d']);
 
@@ -191,6 +190,7 @@ describe('generateFieldMask', () => {
         },
       },
     });
+
     assert.deepEqual(mask, ['f.a', 'f.b.d']);
   });
 
@@ -201,6 +201,7 @@ describe('generateFieldMask', () => {
         b: function () {},
       },
     });
+
     assert.deepEqual(mask, ['f.a']);
   });
 
@@ -223,6 +224,7 @@ describe('generateFieldMask', () => {
     });
 
     const mask = fieldmask.generateFieldMask(instance);
+
     assert.deepEqual(mask, ['fields.f.a', 'fields.f.b.d']);
   });
 
@@ -235,6 +237,7 @@ describe('generateFieldMask', () => {
         },
       },
     });
+
     assert.deepEqual(mask, ['f.a', 'f.b.d']);
   });
 
@@ -247,21 +250,35 @@ describe('generateFieldMask', () => {
         },
       },
     });
+
     assert.deepEqual(mask, ['f.a', 'f.b.d']);
   });
 
   it('empty object', () => {
     const mask = fieldmask.generateFieldMask({});
+
     assert.deepEqual(mask, []);
+  });
+
+  it('object with no prototype', () => {
+    const object = Object.create(null);
+
+    object.f = { a: 22 };
+
+    const mask = fieldmask.generateFieldMask(object);
+
+    assert.deepEqual(mask, ['f.a']);
   });
 
   it('null', () => {
     const mask = fieldmask.generateFieldMask(null);
+
     assert.deepEqual(mask, []);
   });
 
   it('undefined', () => {
     const mask = fieldmask.generateFieldMask();
+
     assert.deepEqual(mask, []);
   });
 
@@ -281,6 +298,7 @@ describe('generateFieldMask', () => {
         },
       },
     });
+
     assert.deepEqual(mask, ['f.b\\.z.d', 'f.b.z.d', 'f.b\\\\.x']);
   });
 });
