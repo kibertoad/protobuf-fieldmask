@@ -36,10 +36,9 @@
     "lodash": "^4.17.21"
   },
   "devDependencies": {
-    "chai": "^4.3.7",
-    "mocha": "^5.2.0",
-    "nyc": "^12.0.2",
-    "prettier": "^2.2.1"
+    "chai": "^4.4.1",
+    "mocha": "^7.2.0",
+    "nyc": "^15.1.0"
   },
   "nyc": {
     "description": "test coverage",
