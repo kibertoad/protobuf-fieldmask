@@ -36,6 +36,3 @@ jobs:
 
       - name: Run Tests
         run: npm run test
-
-      - name: Run TS Type Tests
-        run: npm run test:types
