@@ -82,3 +82,5 @@ generates this output:
   }
 }
 ```
+
+Special thanks to Jorge Yero Salazar for providing TS typings!
