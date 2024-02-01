@@ -1,4 +1,4 @@
-const { generateFieldMask, applyFieldMask } = require('./lib/fieldmask');
+const { generateFieldMask, applyFieldMask } = require('./lib/fieldmask')
 
-module.exports.generateFieldMask = generateFieldMask;
-module.exports.applyFieldMask = applyFieldMask;
+module.exports.generateFieldMask = generateFieldMask
+module.exports.applyFieldMask = applyFieldMask
