@@ -9,10 +9,14 @@
       "email": "kibertoad@gmail.com"
     }
   ],
+  "main": "index.js",
+  "types": "index.d.ts",
+  "type": "commonjs",
   "scripts": {
     "coveralls": "nyc report --reporter=lcov",
     "test": "mocha ./test",
     "test:coverage": "nyc npm test",
+    "test:types": "tsd",
     "lint": "npx @biomejs/biome@1.5.3 lint index.js lib test biome.json",
     "lint:fix": "npx @biomejs/biome@1.5.3 check --apply index.js lib test biome.json",
     "prettier": "prettier --write \"{lib,test}/**/*.{js,ts}\""
@@ -38,7 +42,8 @@
   "devDependencies": {
     "chai": "^4.4.1",
     "mocha": "^7.2.0",
-    "nyc": "^15.1.0"
+    "nyc": "^15.1.0",
+    "tsd": "^0.30.4"
   },
   "nyc": {
     "description": "test coverage",
@@ -59,6 +64,7 @@
   "files": [
     "lib/*",
     "index.js",
+    "index.d.ts",
     "LICENSE",
     "README.md"
   ]
