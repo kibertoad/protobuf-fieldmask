@@ -13,7 +13,8 @@
     "coveralls": "nyc report --reporter=lcov",
     "test": "mocha ./test",
     "test:coverage": "nyc npm test",
-    "lint": "eslint .",
+    "lint": "npx @biomejs/biome@1.5.3 lint index.js lib test biome.json",
+    "lint:fix": "npx @biomejs/biome@1.5.3 check --apply index.js lib test biome.json",
     "prettier": "prettier --write \"{lib,test}/**/*.{js,ts}\""
   },
   "repository": {
@@ -36,9 +37,6 @@
   },
   "devDependencies": {
     "chai": "^4.3.7",
-    "eslint": "^7.32.0",
-    "eslint-config-prettier": "^8.8.0",
-    "eslint-plugin-prettier": "^3.4.1",
     "mocha": "^5.2.0",
     "nyc": "^12.0.2",
     "prettier": "^2.2.1"
