@@ -54,6 +54,9 @@
     "functions": 100,
     "branches": 100
   },
+  "engines": {
+    "node": ">=8"
+  },
   "files": [
     "lib/*",
     "index.js",
