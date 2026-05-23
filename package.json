@@ -12,7 +12,7 @@
   "main": "index.js",
   "types": "index.d.ts",
   "type": "commonjs",
-  "packageManager": "pnpm@10.33.0",
+  "packageManager": "pnpm@11.2.2",
   "scripts": {
     "coveralls": "nyc report --reporter=lcov",
     "test": "mocha ./test",
