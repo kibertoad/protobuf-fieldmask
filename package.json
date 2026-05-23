@@ -12,13 +12,14 @@
   "main": "index.js",
   "types": "index.d.ts",
   "type": "commonjs",
+  "packageManager": "pnpm@11.2.2",
   "scripts": {
     "coveralls": "nyc report --reporter=lcov",
     "test": "mocha ./test",
-    "test:coverage": "nyc npm test",
+    "test:coverage": "nyc mocha ./test",
     "test:types": "tsd",
-    "lint": "npx @biomejs/biome@1.5.3 lint index.js lib test biome.json",
-    "lint:fix": "npx @biomejs/biome@1.5.3 check --apply index.js lib test biome.json",
+    "lint": "pnpm dlx @biomejs/biome@1.5.3 lint index.js lib test biome.json",
+    "lint:fix": "pnpm dlx @biomejs/biome@1.5.3 check --apply index.js lib test biome.json",
     "prettier": "prettier --write \"{lib,test}/**/*.{js,ts}\""
   },
   "repository": {
