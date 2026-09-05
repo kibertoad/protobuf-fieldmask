@@ -1,4 +1,4 @@
-const { assert } = require('chai')
+const assert = require('node:assert/strict')
 const { escapeProperty, unescapeAndSplit } = require('../lib/escaping')
 
 describe('Escaping', () => {

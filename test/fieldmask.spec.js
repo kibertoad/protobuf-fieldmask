@@ -1,4 +1,4 @@
-const { assert } = require('chai')
+const assert = require('node:assert/strict')
 const fieldmask = require('../lib/fieldmask')
 
 describe('applyFieldMask', () => {
